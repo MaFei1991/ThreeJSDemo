@@ -47,10 +47,10 @@
     function initThree1(container) {
         width1 = document.getElementById(container).clientWidth;
         height1 = document.getElementById(container).clientHeight;
-        renderer = new THREE.WebGLRenderer({antialias: true});
-        renderer.setSize(width1, height1);
-        document.getElementById(container).appendChild(renderer.domElement);
-        renderer.setClearColor(new THREE.Color(0x0094FF, 1.0));
+        renderer1 = new THREE.WebGLRenderer({antialias: true});
+        renderer1.setSize(width1, height1);
+        document.getElementById(container).appendChild(renderer1.domElement);
+        renderer1.setClearColor(new THREE.Color(0x0094FF, 1.0));
     }
 
     function initSence() {
@@ -154,7 +154,7 @@
         if (mesh1.position.x >220){
             mesh1.position.x = -220;
         }
-        renderer.render(scene1, camera1);
+        renderer1.render(scene1, camera1);
         requestAnimationFrame(animationB);
     }
     function animationA() {
