@@ -85,10 +85,10 @@
 
     var light1;
     function initLight1() {
-        light1 = new THREE.DirectionalLight(0xFFFFFF);
-        light1.position.set(100, 200, 300);
+        light1 = new THREE.DirectionalLight(0x000000);
+        light1.position.set(100, 100, 200);
         scene1.add(light);
-        light1 = new THREE.PointLight(0x0094FF);
+        light1 = new THREE.PointLight(0xFF0000);
         light1.position.set(0, 0, 300);
         scene1.add(light);
     }
@@ -158,6 +158,7 @@
         requestAnimationFrame(animationB);
     }
     function animationA() {
+        console.log(camera.position.x);
         camera.position.x = camera.position.x + 1;
         mesh.rotation.x += 0.01;
         if ( camera.position.x > 289 ){
