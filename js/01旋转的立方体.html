@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画一个旋转矩形</title>
+    <script src="three.js"></script>
+</head>
+<body onload="threeStart()">
+
+</body>
+</html>
+<script>
+    /*三大对象：
+  * 1. 场景
+  * 2. 相机
+  * 3. 渲染器
+  * 随着技术的进步，我们已经可以在浏览器中展示三维程序，其实现是通过WEBGL技术来实现，而WEBGL学习复杂，于是出现了各种对WebGL封装的框架，其中Three.js就是其中一种。
+  * 1.javascript 的计算能力因为google的V8引擎得到了迅猛的发展。
+  * 2. three.js 目录结构
+  * */
+    var scene, camera, renderer, cube, width, height;
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    /*初始化场景
+    * 场景是所有对象的容器，只有一个场景，实例化 THREE.Scene()就可以。
+    * */
+    function initScene() {
+        scene = new THREE.Scene();
+    }
+
+    /*相机--> 决定场景的显示范围
+    * 透视相机：距离近的物体看起来大，距离远的物体看起来小，直到消失。消失点就是灭点。
+    * 透视相机的构造函数：PerspectiveCamera( fov, aspect, near, far )-- 构成一个视锥体
+    * for:视角，相当于睁开眼睛的角度，上下眼睑之间形成的角度，角度越大，视野越宽；
+    * aspect: 纵横比，总是宽除以高的比例，纵横比大于1则是横屏....
+    * near: 相机距离近截面的距离，也可以认为是眼睛距离近处的距离；
+    * far：相机距离远处的界面。
+    *
+    * */
+    function initCamera() {
+        camera = new THREE.PerspectiveCamera(75, width / height, 1, 500);
+        camera.position.z = 10;
+    }
+
+    /*渲染器
+    * 决定了渲染结果应该画在页面的什么元素上，并且以怎样的方式进行渲染。
+    * */
+    function initRenderer() {
+        renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
+        renderer.setSize(width, height);
+        renderer.setClearColor('0xFFFFFF');
+        // renderer.domElement： 渲染器中的画布
+        // 挂接在 body 元素下
+        document.body.appendChild(renderer.domElement);
+    }
+
+    /*初始化矩形*/
+    function initCube() {
+        //  初始化一个几何体
+        var geometry = new THREE.CubeGeometry(2, 2, 2,);
+        for (var i = 0; i < geometry.faces.length; i += 2) {
+            var hex = Math.random() * 0xFFFFFF;
+            // 矩形的每个面由两个三角形组成
+            geometry.faces[i].color.setHex(hex);
+            geometry.faces[i + 1].color.setHex(hex);
+        }
+
+        // 几何体纹理
+        // var materail = new THREE.MeshBasicMaterial({color: 0x0094FF});
+        var materail = new THREE.MeshBasicMaterial({vertexColors: THREE.FaceColors});
+        // 网格模型
+        cube = new THREE.Mesh(geometry, materail);
+        scene.add(cube);
+
+    }
+
+    /*渲染方法*/
+    function render() {
+        /*
+        * 渲染方式： 实时渲染和离线渲染
+        * 离线渲染： 事先渲染好一帧一帧的图片...
+        * 实时渲染： 需要不停的对画面进行渲染，及时画面内容什么没有改变，也要重新渲染。
+        * */
+        requestAnimationFrame(render);  // 循环调用 render方法
+        cube.rotation.y += 0.01;
+        cube.rotation.z += 0.01;
+        // cube.rotation.z = 6;
+        // 渲染：结合场景和相机
+        /*render( scene, camera, renderTarget, forceClear )
+        * renderTarget：渲染的目标，默认是渲染到前面定义的render变量中
+        * forceClear：每次绘制之前都将画布的内容给清除，即使自动清除标志autoClear为false，也会清除。
+        * */
+        renderer.render(scene, camera);
+    }
+
+
+    function threeStart() {
+        initScene();
+        initCamera();
+        initCube();
+        initRenderer();
+        render();
+    }
+
+</script>
