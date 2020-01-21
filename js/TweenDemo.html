@@ -5,6 +5,7 @@
     <title>Title</title>
     <script src="three.js"></script>
     <script src="stats.js"></script>
+    <script src="Tween.js"></script>
 
 </head>
 <body>
@@ -41,11 +42,14 @@
     function render() {
         // begin，在你要测试的代码前面调用begin函数，在你代码执行完后调用end()函数，这样就能够统计出这段代码执行的平均帧数了。
         stats.begin();
-        requestAnimationFrame(render);
-        cube.rotation.y += 0.01;
+        //new TWEEN.Tween(cube.position).to({x:-400},3000).repeat(Infinity).start();
         renderer.render(scene, camera);
+        requestAnimationFrame(render);
         stats.end();
     }
 
     render();
+
+
+
 </script>

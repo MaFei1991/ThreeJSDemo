@@ -9,7 +9,6 @@
             height: 100%;
             min-height: 900px;
             float: left;
-            border: 1px solid #0094ff;
         }
 
         #animationToRight {
@@ -17,6 +16,7 @@
         }
     </style>
     <script src="three.js"></script>
+    <script src="stats.js"></script>
 </head>
 <body>
 <div id="animationToLeft">
@@ -29,7 +29,7 @@
 </html>
 <script>
     var scene1, scene,renderer, renderer1, camera1, camera, width, height, width1, height1;
-
+    var stats1,stats2;
     // function initRange(ele) {
     //     width = document.getElementById(ele).clientWidth;
     //     height = document.getElementById(ele).clientHeight;
@@ -41,7 +41,13 @@
         renderer = new THREE.WebGLRenderer({antialias: true});
         renderer.setSize(width, height);
         document.getElementById(container).appendChild(renderer.domElement);
-       renderer.setClearColor(new THREE.Color(0x0094FF, 1.0));
+        renderer.setClearColor(new THREE.Color(0x0094FF, 1.0));
+
+        stats1 = new Stats();
+        stats1.domElement.style.position='absolute';
+        stats1.domElement.style.left = '1%';
+        stats1.domElement.style.top = '2%';
+        document.getElementById(container).appendChild(stats1.domElement);
     }
 
     function initThree1(container) {
@@ -51,6 +57,12 @@
         renderer1.setSize(width1, height1);
         document.getElementById(container).appendChild(renderer1.domElement);
         renderer1.setClearColor(new THREE.Color(0x0094FF, 1.0));
+
+        stats2 = new Stats();
+        stats2.domElement.style.position ='absolute';
+        stats2.domElement.style.left = '51%';
+        stats2.domElement.style.top = '2%';
+        document.getElementById(container).appendChild(stats2.domElement);
     }
 
     function initSence() {
@@ -156,6 +168,7 @@
         }
         renderer1.render(scene1, camera1);
         requestAnimationFrame(animationB);
+        stats2.update();
     }
     function animationA() {
         console.log(camera.position.x);
@@ -166,6 +179,7 @@
         }
         renderer.render(scene, camera);
         requestAnimationFrame(animationA);
+        stats1.update();
     }
     animationLeft();
     animationRight();

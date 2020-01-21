@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46fc0e45-12a2-446d-a4ef-47fad1fb7c2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/Tween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/TweenDemo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/stats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/stats.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/animationinthreejs.html" beforeDir="false" afterPath="$PROJECT_DIR$/js/animationinthreejs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/demo1.html" beforeDir="false" afterPath="$PROJECT_DIR$/js/demo1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -26,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="G:/Projects/Reactjs/my-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -87,7 +93,7 @@
       <workItem from="1578445933704" duration="2548000" />
       <workItem from="1579138214640" duration="7072000" />
       <workItem from="1579399358669" duration="8859000" />
-      <workItem from="1579483291925" duration="16074000" />
+      <workItem from="1579483291925" duration="28520000" />
     </task>
     <servers />
   </component>
@@ -107,5 +113,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/Tween.js</url>
+          <line>15</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
